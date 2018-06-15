@@ -7,14 +7,14 @@ import ru.vik.html.*
 
 open class Html2Spannable(var density: Float = 1.0f,
                           var fontDensity: Float = 1.0f,
-                          private val html: Html = Html()) {
+                          private val html: BaseHtml = BaseHtml()) {
 
     class SpanConfig(type: Tag.Type,
                      val onSetTextStyle: ((tag: Tag, tp: TextPaint) -> Unit)? = null,
 //                     val onTextTransform: ((text: String) -> String?)? = null,
                      val onCreateSpan: ((tag: Tag) -> Any?)? = null,
                      val onAfterCreateSpan: ((tag: Tag, span: Any) -> Unit)? = null
-    ) : Html.TagConfig(type)
+    ) : BaseHtml.TagConfig(type)
 
     class SpanItem(val span: Any, var start: Int, var end: Int = 0)
 
@@ -56,6 +56,7 @@ open class Html2Spannable(var density: Float = 1.0f,
                                output: StringBuilder,
                                needForLineBreak: Boolean = false): Boolean {
         val config = getSpanConfig(tag.name)
+        @Suppress("NAME_SHADOWING")
         var needForLineBreak = needForLineBreak
 
         // Блочным элементам обязательно нужны разрывы строки в начале и конце
