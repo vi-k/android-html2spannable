@@ -1,6 +1,6 @@
 package ru.vik.html2spannable
 
-import ru.vik.html.*
+import ru.vik.utils.html.Tag
 
 class SimpleHtml2Spannable(density: Float = 1.0f,
                            fontDensity: Float = 1.0f)

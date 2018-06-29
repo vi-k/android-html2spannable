@@ -3,7 +3,9 @@ package ru.vik.html2spannable
 import android.text.Layout
 import android.text.SpannableStringBuilder
 import android.text.TextPaint
-import ru.vik.html.*
+
+import ru.vik.utils.html.BaseHtml
+import ru.vik.utils.html.Tag
 
 open class Html2Spannable(var density: Float = 1.0f,
                           var fontDensity: Float = 1.0f,
